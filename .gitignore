@@ -1,0 +1,6 @@
+.env
+.env.local
+development/cache/
+development/sde/data/raw/*
+development/sde/data/extracted/*
+!development/sde/data/.gitkeep

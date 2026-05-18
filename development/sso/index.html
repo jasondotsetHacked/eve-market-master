@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EVE SSO Dev Login</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel">
+        <h1>EVE SSO Dev Login</h1>
+        <label>
+          Client ID
+          <input id="client-id" autocomplete="off" spellcheck="false">
+        </label>
+        <label>
+          Redirect URI
+          <input id="redirect-uri" autocomplete="off" spellcheck="false">
+        </label>
+        <label>
+          Scopes
+          <textarea id="scopes" rows="3" spellcheck="false"></textarea>
+        </label>
+        <div class="actions">
+          <button id="login" type="button">Log In With EVE</button>
+          <button id="clear" type="button">Clear Local Token</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Character</h2>
+        <dl id="claims"></dl>
+        <h2>Token Response</h2>
+        <pre id="token-output">No token yet.</pre>
+      </section>
+    </main>
+
+    <script src="./sso.js" type="module"></script>
+  </body>
+</html>

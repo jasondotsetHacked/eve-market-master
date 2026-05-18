@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EVE Market Master</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>EVE Market Master</h1>
+        <p>Local market watchlist and weighted average price analysis.</p>
+      </div>
+      <a class="button" href="/development/sso/">SSO Test</a>
+    </header>
+
+    <main class="workspace">
+      <section class="panel watchlist">
+        <div class="panel-header">
+          <h2>Watchlist</h2>
+          <button type="button">Add Item</button>
+        </div>
+        <div class="empty-state">Market rows will appear here after the ESI and SDE integration is wired in.</div>
+      </section>
+
+      <section class="panel chart-panel">
+        <div class="panel-header">
+          <h2>Market Price</h2>
+          <span>Weighted average vs live market</span>
+        </div>
+        <div id="market-chart" class="chart"></div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+:root {
+  color-scheme: dark;
+  --bg: #101316;
+  --panel: #181d22;
+  --text: #edf2f7;
+  --muted: #a7b2be;
+  --line: #303a45;
+  --accent: #53c7b7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.shell {
+  display: grid;
+  grid-template-columns: minmax(320px, 420px) minmax(0, 1fr);
+  gap: 20px;
+  padding: 28px;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  padding: 18px;
+}
+
+h1,
+h2 {
+  margin: 0 0 16px;
+}
+
+h1 {
+  font-size: 22px;
+}
+
+h2 {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+input,
+textarea,
+button {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #11161b;
+  color: var(--text);
+  font: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+}
+
+button {
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#login {
+  border-color: var(--accent);
+}
+
+dl {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 8px 12px;
+}
+
+dt {
+  color: var(--muted);
+}
+
+dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+pre {
+  min-height: 220px;
+  overflow: auto;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #0c1014;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 860px) {
+  .shell {
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+}

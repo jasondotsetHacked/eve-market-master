@@ -1,0 +1,13 @@
+{
+  "name": "eve-market-master",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node development/server.mjs",
+    "esi:status": "node development/esi/probe.mjs status",
+    "esi:markets": "node development/esi/probe.mjs market-orders",
+    "sde:fetch": "node development/sde/fetch-sde.mjs",
+    "sde:extract-app-data": "node development/sde/extract-app-data.mjs"
+  }
+}
