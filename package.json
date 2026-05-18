@@ -7,6 +7,9 @@
     "dev": "node development/server.mjs",
     "esi:status": "node development/esi/probe.mjs status",
     "esi:markets": "node development/esi/probe.mjs market-orders",
+    "esi:token": "node development/esi/probe.mjs token-summary",
+    "esi:snapshot": "node development/esi/market-snapshot.mjs",
+    "esi:cost-basis": "node development/esi/cost-basis.mjs",
     "sde:fetch": "node development/sde/fetch-sde.mjs",
     "sde:extract-app-data": "node development/sde/extract-app-data.mjs"
   }

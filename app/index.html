@@ -10,24 +10,49 @@
     <header class="topbar">
       <div>
         <h1>EVE Market Master</h1>
-        <p>Local market watchlist and weighted average price analysis.</p>
+        <p id="session-status">Local market watchlist and weighted average price analysis.</p>
       </div>
-      <a class="button" href="/development/sso/">SSO Test</a>
+      <nav class="top-actions">
+        <a id="login-link" class="button" href="/auth/login">Log In</a>
+        <a id="logout-link" class="button subtle hidden" href="/auth/logout">Log Out</a>
+        <a class="button subtle" href="/development/sso/">Dev SSO</a>
+      </nav>
     </header>
 
     <main class="workspace">
       <section class="panel watchlist">
         <div class="panel-header">
-          <h2>Watchlist</h2>
-          <button type="button">Add Item</button>
+          <div>
+            <h2>Watchlist</h2>
+            <span id="watchlist-meta">Loading character market activity</span>
+          </div>
+          <button id="refresh-watchlist" type="button">Refresh</button>
         </div>
-        <div class="empty-state">Market rows will appear here after the ESI and SDE integration is wired in.</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Buy Avg</th>
+                <th>Sell Avg</th>
+                <th>Qty In</th>
+                <th>Qty Out</th>
+                <th>Position</th>
+                <th>Jita Sell</th>
+                <th>Jita Buy</th>
+              </tr>
+            </thead>
+            <tbody id="watchlist-body"></tbody>
+          </table>
+        </div>
       </section>
 
       <section class="panel chart-panel">
         <div class="panel-header">
-          <h2>Market Price</h2>
-          <span>Weighted average vs live market</span>
+          <div>
+            <h2 id="chart-title">Market Price</h2>
+            <span id="chart-subtitle">Weighted average buy and sell prices vs Jita</span>
+          </div>
         </div>
         <div id="market-chart" class="chart"></div>
       </section>

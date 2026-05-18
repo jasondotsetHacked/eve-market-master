@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { loadEnv } from "../lib.mjs";
 import { esi, pagedEsi } from "./esi-client.mjs";
+import { characterIdFromClaims, decodeJwtPayload, readLocalToken, summarizeToken } from "./token-store.mjs";
 
 await loadEnv();
 
@@ -25,13 +26,16 @@ const commands = {
     };
   },
   async "character-orders"() {
-    const characterId = required(flags.character || process.env.EVE_CHARACTER_ID, "character id");
-    const token = required(flags.token || process.env.EVE_ACCESS_TOKEN, "access token");
+    const token = required(flags.token || await readLocalToken(), "access token");
+    const characterId = required(flags.character || process.env.EVE_CHARACTER_ID || characterIdFromClaims(decodeJwtPayload(token)), "character id");
     return pagedEsi(`/characters/${characterId}/orders/`, { token });
+  },
+  async "token-summary"() {
+    return summarizeToken(await readLocalToken());
   },
   async route() {
     const path = required(flags.path, "--path");
-    return esi(path, { token: flags.token || process.env.EVE_ACCESS_TOKEN });
+    return esi(path, { token: flags.token || await readLocalToken() });
   }
 };
 

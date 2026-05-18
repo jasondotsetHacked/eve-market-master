@@ -65,9 +65,25 @@ button {
   cursor: pointer;
 }
 
+.button.subtle {
+  color: var(--muted);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
 .workspace {
   display: grid;
-  grid-template-columns: minmax(320px, 420px) minmax(0, 1fr);
+  grid-template-columns: minmax(640px, 1fr) minmax(360px, 520px);
   gap: 20px;
   padding: 24px 32px;
 }
@@ -89,12 +105,82 @@ button {
   border-bottom: 1px solid var(--line);
 }
 
+.panel-header div {
+  display: grid;
+  gap: 4px;
+}
+
 .empty-state {
   display: grid;
   min-height: 300px;
   place-items: center;
   padding: 24px;
   text-align: center;
+}
+
+.table-wrap {
+  overflow: auto;
+  max-height: calc(100vh - 150px);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+th,
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: right;
+  white-space: nowrap;
+}
+
+th:first-child,
+td:first-child {
+  text-align: left;
+  min-width: 220px;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--panel-strong);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+td strong,
+td span {
+  display: block;
+}
+
+td span {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+tbody tr {
+  cursor: pointer;
+}
+
+tbody tr:hover,
+tbody tr.selected {
+  background: #20272e;
+}
+
+.status-cell {
+  height: 280px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.negative {
+  color: #e06f62;
 }
 
 .chart {

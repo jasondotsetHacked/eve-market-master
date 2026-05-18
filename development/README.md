@@ -56,3 +56,26 @@ http://localhost:8787/development/sso/
 ```
 
 Treat access and refresh tokens as private local credentials.
+
+For authenticated probe scripts, save a current access token in `.env`:
+
+```text
+EVE_ACCESS_TOKEN=your_access_token_here
+```
+
+## Scope Notes
+
+Public market data does not need SSO:
+
+- Regional order books: `/markets/{region_id}/orders/`
+- Regional price history: `/markets/{region_id}/history/`
+- Item and station metadata: most `/universe/...` routes
+
+Useful private-data scopes for this market tool:
+
+- `esi-markets.read_character_orders.v1`: active character buy/sell orders
+- `esi-wallet.read_character_wallet.v1`: wallet balance and transaction history, useful for weighted average cost basis
+- `esi-assets.read_assets.v1`: current inventory quantities by type, useful for position sizing
+- `esi-contracts.read_character_contracts.v1`: contract exposure if we later include contract-market activity
+
+The initial SSO page requests only market orders and wallet. Add asset or contract scopes later when the app needs them.
